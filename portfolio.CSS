@@ -1,0 +1,230 @@
+/* Reset & Fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  color: #333;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+header {
+  background-color: #868bba;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+#toggleMode {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+#toggleMode:hover {
+  transform: rotate(20deg);
+}
+
+main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Cards */
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.card {
+  background: rgb(190, 185, 185);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+  border: 3px dashed #d0ff00;
+  width: 250px;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: #f5f5f5;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+body.dark .card {
+  background: rgb(131, 103, 103);
+}
+
+body.dark .card:hover {
+  background: #e05c5c;
+}
+
+/* About */
+.about-card {
+  background-color: rgb(131, 103, 103)
+  border-left: 5px solid #ffffff;
+  cursor: default;
+}
+
+body.dark .about-card {
+  background-color: hsl(0, 12%, 46%);
+  border-left-color: #ede5e3;
+}
+
+/* Skills List */
+.skills-card ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.skills-card li {
+  margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact-section {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 0 1rem;
+}
+
+.contact-wrapper {
+  max-width: 500px;
+  margin: auto;
+}
+
+.color-block {
+  background-color: #2e463c;
+  color: white;
+  padding: 1rem;
+  font-size: 1.25rem;
+  border-radius: 8px 8px 0 0;
+  width: 100%;
+}
+
+.contact-card {
+  background: rgb(255, 255, 255);
+  padding: 1.2rem;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.contact-card p {
+  margin: 0.5rem 0;
+  word-break: break-word;
+}
+
+.contact-card a {
+  color: #6a04f8;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+body.dark .contact-card {
+  background: #1e1e1e;
+}
+
+body.dark .contact-card a {
+  color: #bb86fc;
+}
+
+/* GIF Background */
+.gif-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('portfolio-bg.gif') no-repeat center center / cover;
+  opacity: 0.8;
+  z-index: -2;
+  filter: blur(1.5px);
+}
+
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;
+    padding: 1rem;
+    line-height: 1.6rem;
+  }
+
+  #toggleMode {
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .card-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .card {
+    width: 90%;
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+
+  .skills-card ul {
+    padding-left: 0.5rem;
+  }
+
+  .skills-card li {
+    font-size: 0.95rem;
+  }
+
+  .contact-section {
+    margin-top: 3rem;
+  }
+
+  .contact-card {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+}
